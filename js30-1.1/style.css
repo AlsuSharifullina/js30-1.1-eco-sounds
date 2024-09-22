@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+body{
+    background: #fca4d1;
+}
+
+.main{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player{
+    max-width: 300px;
+    width: 100%;
+    background: #e4549f;
+    box-shadow: 0 0 50px rgb(55, 55, 55);
+    border-radius: 20px;
+}
+.active{
+    animation: scaleAnimation 2s ease infinite forwards;
+}
+
+.cover__img{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.song{
+    font-size: 1,5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #3c1027;
+}
+.progress__container {
+    margin: 20px auto;
+    width: 90%;
+    height: 10px;
+    border-radius: 5px;
+    background: #fca4d1;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.progress {
+    background-color: #82325b;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+.btn {
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn:hover{
+    opacity: 0.5;
+}
+.btn img{
+    width: 50px;
+}
+.prev {
+}
+.play {
+}
+.img__srs {
+}
+.next {
+}
+
+@keyframes scaleAnimation {
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+}
