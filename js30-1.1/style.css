@@ -24,6 +24,9 @@ body{
     box-shadow: 0 0 50px rgb(55, 55, 55);
     border-radius: 20px;
 }
+.active{
+    animation: scaleAnimation 2s ease infinite forwards;
+}
 
 .cover__img{
     width: 100%;
@@ -31,14 +34,11 @@ body{
 }
 
 .song{
+    font-size: 1,5rem;
+    font-weight: 700;
     text-align: center;
     color: #3c1027;
 }
-.song h1{
-    color: #fdd0e7;
-    font-style: 20px;
-}
-
 .progress__container {
     margin: 20px auto;
     width: 90%;
@@ -63,6 +63,11 @@ body{
     padding: 20px;
 }
 .btn {
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn:hover{
+    opacity: 0.5;
 }
 .btn img{
     width: 50px;
@@ -74,4 +79,20 @@ body{
 .img__srs {
 }
 .next {
+}
+@keyframes scaleAnimation {
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
 }
