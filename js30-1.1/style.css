@@ -18,7 +18,7 @@ body{
 }
 
 .player{
-    max-width: 380px;
+    max-width: 300px;
     width: 100%;
     background: #e4549f;
     box-shadow: 0 0 50px rgb(55, 55, 55);
@@ -33,11 +33,10 @@ body{
 .song{
     text-align: center;
     color: #3c1027;
-    font-size: 1rem;
 }
 .song h1{
     color: #fdd0e7;
-    font-size: 2rem;
+    font-style: 20px;
 }
 
 .progress__container {
