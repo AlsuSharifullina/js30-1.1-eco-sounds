@@ -14,20 +14,16 @@ const songs = ["Beyonce <br> Don't Hurt Yourself", "Dua Lipa <br> Don't Start No
 // Имена файлов аудио
 const audioFiles = ["beyonce.mp3", "dua_lipa.mp3"];
 
-// Индекс текущей песни
+
 let songIndex = 0;
 
 // Инициализация песни
 function loadSong(song, audioFile) {
-    // Установка названия песни
     title.innerHTML = song;
-    // Установка пути к аудиофайлу
     audio.src = `./audio/${audioFile}`;
-    // Установка картинки обложки
     cover.src = `./img/cover${songIndex + 1}.png`;
 }
 
-// Загружаем первую песню
 loadSong(songs[songIndex], audioFiles[songIndex]);
 
 //play
@@ -54,7 +50,7 @@ playBtn.addEventListener('click',()=>{
     }
 })
 
-//next song
+//next and prev  song
 
 function nextSong(){
     songIndex++
@@ -77,3 +73,32 @@ function prevSong(){
     playSong()
 }
 prevBtn.addEventListener('click',  prevSong)
+
+
+//progress bar
+
+function updateProgress(e){
+    const {duration, currentTime} = e.srcElement
+    const progressPecent = (currentTime / duration) * 100
+    progress.style.width = `${progressPecent}%`
+}
+
+audio.addEventListener('timeupdate', updateProgress)
+
+//set progress
+
+function setProgress(e){
+    const width = this.clientWidth
+    const clickX = e.offsetX
+    const duration = audio.duration
+ 
+    audio.currentTime = ( clickX/width) * duration
+
+}
+
+progressContainer.addEventListener('click', setProgress)
+
+
+//autoplay
+
+audio.addEventListener('ended', nextSong)
