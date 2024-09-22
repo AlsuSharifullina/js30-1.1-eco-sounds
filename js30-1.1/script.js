@@ -15,7 +15,7 @@ const songs = ["Beyonce <br> Don't Hurt Yourself", "Dua Lipa <br> Don't Start No
 const audioFiles = ["beyonce.mp3", "dua_lipa.mp3"];
 
 // Индекс текущей песни
-let songIndex = 1;
+let songIndex = 0;
 
 // Инициализация песни
 function loadSong(song, audioFile) {
@@ -34,6 +34,7 @@ loadSong(songs[songIndex], audioFiles[songIndex]);
 function playSong(){
     player.classList.add('play')
     player .classList.add('active')
+    imgSrc.src = './svg/pause.png'
     audio.play()
 }
 
@@ -41,6 +42,7 @@ function playSong(){
 function pauseSong(){
     player.classList.remove('play')
     player .classList.remove('active')
+    imgSrc.src = './svg/play.png'
     audio.pause()
 }
 playBtn.addEventListener('click',()=>{
@@ -51,3 +53,27 @@ playBtn.addEventListener('click',()=>{
         playSong()
     }
 })
+
+//next song
+
+function nextSong(){
+    songIndex++
+    if(songIndex > songs.length -1){
+        songIndex = 0
+    }
+    loadSong(songs[songIndex], audioFiles[songIndex]);
+    playSong()
+}
+nextBtn.addEventListener('click', nextSong)
+
+
+function prevSong(){
+    songIndex--
+
+    if(songIndex < 0){
+        songIndex = songs.length -1
+    }
+    loadSong(songs[songIndex], audioFiles[songIndex]);
+    playSong()
+}
+prevBtn.addEventListener('click',  prevSong)

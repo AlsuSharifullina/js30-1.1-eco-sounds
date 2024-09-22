@@ -80,6 +80,7 @@ body{
 }
 .next {
 }
+
 @keyframes scaleAnimation {
     100% {
         transform: scale(1);
