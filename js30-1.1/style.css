@@ -94,6 +94,17 @@ body{
 .footer__link img{
     width: 50px;
 }
+.time {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.time span {
+    font-size: 14px;
+}
 
 @keyframes scaleAnimation {
     100% {
