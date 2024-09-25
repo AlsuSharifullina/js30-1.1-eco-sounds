@@ -7,7 +7,9 @@ const player = document.querySelector('.player'),
       progress = document.querySelector('.progress'),
       cover = document.querySelector('.cover__img'),
       imgSrc = document.querySelector('.img__src'),
-      title = document.querySelector('.song');
+      title = document.querySelector('.song'),
+      currentTimeEl = document.querySelector('.current-time'),
+      totalTimeEl = document.querySelector('.total-time');
 
 // Названия песен 
 const songs = ["Beyonce <br> Don't Hurt Yourself", "Dua Lipa <br> Don't Start Now"];
@@ -81,6 +83,13 @@ function updateProgress(e){
     const {duration, currentTime} = e.srcElement
     const progressPecent = (currentTime / duration) * 100
     progress.style.width = `${progressPecent}%`
+
+    currentTimeEl.textContent = formatTime(currentTime);
+
+    // Обновим продолжительность трека при первом обновлении
+    if (!isNaN(duration)) {
+        totalTimeEl.textContent = formatTime(duration);
+    }
 }
 
 audio.addEventListener('timeupdate', updateProgress)
@@ -102,3 +111,11 @@ progressContainer.addEventListener('click', setProgress)
 //autoplay
 
 audio.addEventListener('ended', nextSong)
+
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60);
+    return `${minutes}:${sec < 10 ? '0' : ''}${sec}`;
+}
+
